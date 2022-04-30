@@ -11,10 +11,10 @@
 許してください。  
 
 ## 使い方
-そのまま立ち上げて
-- プロジェクトを作る場所 (パス)
-- シリーズ名 (なくてもOK)
-- プロジェクト名
+そのまま立ち上げて  
+- プロジェクトを作る場所 (パス)  
+- シリーズ名 (なくてもOK)  
+- プロジェクト名  
 を入力するだけです。  
 
 ![screenshot_0.png](./screenshot/screenshot_0.png)  
@@ -45,18 +45,21 @@ AviutlProjectCreatorGUI には、Markdownを自動生成する機能と、
 %PROJNAME% | プロジェクトの名前
 %SERIESNAME% | シリーズの名前 (入力しなかったときは空)
 
-この機能を利用して、シリーズや、プロジェクトごとに、フォルダを作ることができます。
+この機能を利用して、シリーズや、プロジェクトごとに、フォルダを作ることができます。  
 
 ## ライセンス
-このプログラムは MIT LICENSE で提供されます。  
-[LICENSE](https://github.com/soramakura/AviutlProjectCreator/blob/master/LICENSE)
+Copyright (c) 2022 soramakura  
+Released under the MIT license  
+[https://github.com/soramakura/AviutlProjectCreator/blob/master/LICENSE](https://github.com/soramakura/AviutlProjectCreator/blob/master/LICENSE)
 
+---
 # AviUtlProjectCreator
-「AviutlProjectCreatorGUI」の CUI版。こっちのほうが先に作った ~~(その後、AviutlProjectCreatorGUIで書いたコードを基にリファクタリングした)~~。
+「AviutlProjectCreatorGUI」の CUI版。こっちのほうが先に作った ~~(その後、AviutlProjectCreatorGUIで書いたコードを基にリファクタリングした)~~。  
 
 ## 使い方
-AviutlProjectCreatorGUIとほぼ同じ
+AviutlProjectCreatorGUIとほぼ同じ  
 
 ## ライセンス
-このプログラムも MIT LICENSE で提供されます。  
-[LICENSE](https://github.com/soramakura/AviutlProjectCreator/blob/master/LICENSE)
+Copyright (c) 2022 soramakura  
+Released under the MIT license  
+[https://github.com/soramakura/AviutlProjectCreator/blob/master/LICENSE](https://github.com/soramakura/AviutlProjectCreator/blob/master/LICENSE)
