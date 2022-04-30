@@ -52,7 +52,11 @@ AviutlProjectCreatorGUI には、Markdownを自動生成する機能と、
 [LICENSE](https://github.com/soramakura/AviutlProjectCreator/blob/master/LICENSE)
 
 # AviUtlProjectCreator
-「AviUtlProjectCreatorGUI」の CUI版。こっちのほうが先に作った ~~(その後、AviUtlProjectCreatorGUIで作ったコードを基にリファクタリングした)~~。
+「AviutlProjectCreatorGUI」の CUI版。こっちのほうが先に作った ~~(その後、AviutlProjectCreatorGUIで書いたコードを基にリファクタリングした)~~。
 
 ## 使い方
-AviUtlProjectCreatorGUIとほぼ同じ
+AviutlProjectCreatorGUIとほぼ同じ
+
+## ライセンス
+このプログラムも MIT LICENSE で提供されます。  
+[LICENSE](https://github.com/soramakura/AviutlProjectCreator/blob/master/LICENSE)
