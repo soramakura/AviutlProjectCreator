@@ -49,4 +49,4 @@ AviutlProjectCreatorGUI には、Markdownを自動生成する機能と、
 
 ## ライセンス
 このプログラムは MIT LICENSE で提供されます。  
-[LICENSE](./LICENSE)
+[LICENSE](https://github.com/soramakura/AviutlProjectCreator/blob/master/LICENSE)
