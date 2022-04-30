@@ -48,6 +48,5 @@ AviutlProjectCreatorGUI には、Markdownを自動生成する機能と、
 この機能を利用して、シリーズや、プロジェクトごとに、フォルダを作ることができます。
 
 ## ライセンス
-Copyright (c) 2022 soramakura
-Released under the MIT license  
-[https://github.com/soramakura/AviutlProjectCreator/blob/master/LICENSE](https://github.com/soramakura/AviutlProjectCreator/blob/master/LICENSE)
+このプログラムは MIT LICENSE で提供されます。  
+[LICENSE](./LICENSE)
