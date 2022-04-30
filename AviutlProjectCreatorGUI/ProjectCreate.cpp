@@ -80,7 +80,6 @@ void createMarkdown
     if (!output.is_open()) {
         throw std::runtime_error{ "テンプレートMarkdownファイルの読み込みに失敗しました。" };
     }
-
     while (!temp.eof()) {
         std::wstring line;
         std::getline(temp, line);
@@ -90,10 +89,10 @@ void createMarkdown
     }
 }
 std::wstring replaceTags
-(std::wstring  line
-    , const std::wstring& projectName
-    , const std::wstring& projectPath
-    , const std::wstring& seriesName
+(       std::wstring  line
+, const std::wstring& projectName
+, const std::wstring& projectPath
+, const std::wstring& seriesName
 )
 {
     const std::time_t currentTime = std::time(nullptr);
@@ -101,9 +100,9 @@ std::wstring replaceTags
     localtime_s(&timeStruct, &currentTime);
 
     line = std::regex_replace(line, std::wregex(LR"(%DATE%)"), (std::wostringstream()
-        << timeStruct.tm_year + 1900 << "年"
-        << timeStruct.tm_mon + 1     << "月"
-        << timeStruct.tm_mday        << "日"
+        << timeStruct.tm_year + 1900 << "年" // wchar_t だと、何も書き込まれないので、char型にした。
+        << timeStruct.tm_mon  + 1    << "月" // wchar_t だと、何も書き込まれないので、char型にした。
+        << timeStruct.tm_mday        << "日" // wchar_t だと、何も書き込まれないので、char型にした。
         ).str()
     );
     line = std::regex_replace(line, std::wregex(LR"(%PROJNAME%)"  ), projectName);

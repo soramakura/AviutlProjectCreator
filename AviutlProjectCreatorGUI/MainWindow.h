@@ -8,7 +8,7 @@
 
 class MainWindow
 {
-    std::wstring projectPath;
+    std::wstring s;
     std::wstring seriesName;
     std::wstring projectName;
 
