@@ -20,10 +20,10 @@ std::wstring MainWindow::getDlgItemTextW(HWND hDlg, UINT nIDDlgItem)
 
 bool MainWindow::handle_IDOK(HWND hDlg, WPARAM wParam, LPARAM lParam)
 {
-    s = getDlgItemTextW(hDlg, PROJECT_PATH_EDIT);
+    projectPath = getDlgItemTextW(hDlg, PROJECT_PATH_EDIT);
     seriesName  = getDlgItemTextW(hDlg, SERIES_NAME_EDIT );
     projectName = getDlgItemTextW(hDlg, PROJECT_NAME_EDIT);
-    return createProject(hDlg, projectName, s, seriesName);
+    return createProject(hDlg, projectName, projectPath, seriesName);
 }
 
 void MainWindow::handle_BOOT_EXPLORER(HWND hDlg)

@@ -8,8 +8,8 @@
 
 class MainWindow
 {
-    std::wstring s;
-    std::wstring seriesName;
+    std::wstring projectPath;
+    std::wstring seriesName ;
     std::wstring projectName;
 
     std::wstring getDlgItemTextW(HWND hDlg, UINT nIDDlgItem);
