@@ -6,7 +6,7 @@
 #include "config.h"
 
 bool createProject
-( HWND hDlg
+(       HWND          hDlg
 , const std::wstring& projectName
 , const std::wstring& projectPath
 , const std::wstring& seriesName
@@ -105,6 +105,12 @@ std::wstring replaceTags
         << timeStruct.tm_year + 1900 << L"”N"
         << timeStruct.tm_mon  + 1    << L"ŒŽ"
         << timeStruct.tm_mday        << L"“ú"
+        ).str()
+    );
+    line = std::regex_replace(line, std::wregex(LR"(%DATEISO%)"), (std::wostringstream()
+        << timeStruct.tm_year + 1900 << L"-"
+        << timeStruct.tm_mon  + 1    << L"-"
+        << timeStruct.tm_mday        << L"-"
         ).str()
     );
     line = std::regex_replace(line, std::wregex(LR"(%PROJNAME%)"  ), projectName);

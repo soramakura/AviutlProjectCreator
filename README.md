@@ -40,7 +40,8 @@ AviutlProjectCreatorGUI には、Markdownを自動生成する機能と、
 
 置換前文字列 | 置換後文字列
 --- | ---
-%DATE% | プロジェクトを作った日付
+%DATE% | プロジェクトを作った日付 (Y年M月D日形式)
+%DATEISO% | プロジェクトを作った日付 (ISO形式)
 %PROJPATH% | プロジェクトのあるパス
 %PROJNAME% | プロジェクトの名前
 %SERIESNAME% | シリーズの名前 (入力しなかったときは空)

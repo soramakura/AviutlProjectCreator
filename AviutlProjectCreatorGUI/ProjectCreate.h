@@ -7,7 +7,7 @@
 #include <Windows.h>
 
 bool createProject
-( HWND hDlg
+(       HWND          hDlg
 , const std::wstring& projectName
 , const std::wstring& projectPath
 , const std::wstring& seriesName
