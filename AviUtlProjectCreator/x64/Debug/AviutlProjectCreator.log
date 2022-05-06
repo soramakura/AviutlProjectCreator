@@ -1,3 +1,3 @@
 ﻿cl : コマンド ライン warning D9002: 不明なオプション '/shift_jis' を無視します。
-  main.cpp
+  ProjectCreate.cpp
   AviutlProjectCreator.vcxproj -> D:\Program\vs\2022\Console\AviUtlProjectCreator\x64\Debug\AviUtlProjectCreator.exe

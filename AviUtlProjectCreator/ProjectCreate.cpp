@@ -105,10 +105,24 @@ std::string replaceTags
 
     line = std::regex_replace(line, std::regex(R"(%DATE%)"), (std::ostringstream()
         << timeStruct.tm_year + 1900 << "”N"
-        << timeStruct.tm_mon + 1     << "ŒŽ"
+        << timeStruct.tm_mon  + 1    << "ŒŽ"
         << timeStruct.tm_mday        << "“ú"
         ).str()
     );
+    line = std::regex_replace(line, std::regex(R"(%DATEISO%)"), (std::ostringstream()
+        << timeStruct.tm_year + 1900 << "-"
+        << timeStruct.tm_mon  + 1    << "-"
+        << timeStruct.tm_mday        << "-"
+        ).str()
+    );
+    line = std::regex_replace(line, std::regex(R"(%YEAR%)"  ), std::to_string(timeStruct.tm_year + 1900));
+    line = std::regex_replace(line, std::regex(R"(%MONTH%)" ), std::to_string(timeStruct.tm_mon  + 1   ));
+    line = std::regex_replace(line, std::regex(R"(%DAY%)"   ), std::to_string(timeStruct.tm_mday       ));
+    line = std::regex_replace(line, std::regex(R"(%HOUR%)"  ), std::to_string(timeStruct.tm_hour       ));
+    line = std::regex_replace(line, std::regex(R"(%MINUTE%)"), std::to_string(timeStruct.tm_min        ));
+    line = std::regex_replace(line, std::regex(R"(%SECOND%)"), std::to_string(timeStruct.tm_sec        ));
+    line = std::regex_replace(line, std::regex(R"(%TIME_T%)"), std::to_string(currentTime              ));
+
     line = std::regex_replace(line, std::regex(R"(%PROJNAME%)"  ), projectName);
     line = std::regex_replace(line, std::regex(R"(%PROJPATH%)"  ), projectPath);
     line = std::regex_replace(line, std::regex(R"(%SERIESNAME%)"), seriesName );

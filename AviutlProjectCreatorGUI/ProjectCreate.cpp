@@ -113,6 +113,14 @@ std::wstring replaceTags
         << timeStruct.tm_mday        << L"-"
         ).str()
     );
+    line = std::regex_replace(line, std::wregex(LR"(%YEAR%)"  ), std::to_wstring(timeStruct.tm_year + 1900));
+    line = std::regex_replace(line, std::wregex(LR"(%MONTH%)" ), std::to_wstring(timeStruct.tm_mon  + 1   ));
+    line = std::regex_replace(line, std::wregex(LR"(%DAY%)"   ), std::to_wstring(timeStruct.tm_mday       ));
+    line = std::regex_replace(line, std::wregex(LR"(%HOUR%)"  ), std::to_wstring(timeStruct.tm_hour       ));
+    line = std::regex_replace(line, std::wregex(LR"(%MINUTE%)"), std::to_wstring(timeStruct.tm_min        ));
+    line = std::regex_replace(line, std::wregex(LR"(%SECOND%)"), std::to_wstring(timeStruct.tm_sec        ));
+    line = std::regex_replace(line, std::wregex(LR"(%TIME_T%)"), std::to_wstring(currentTime              ));
+
     line = std::regex_replace(line, std::wregex(LR"(%PROJNAME%)"  ), projectName);
     line = std::regex_replace(line, std::wregex(LR"(%PROJPATH%)"  ), projectPath);
     line = std::regex_replace(line, std::wregex(LR"(%SERIESNAME%)"), seriesName );
