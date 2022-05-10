@@ -1,13 +1,13 @@
 # AviutlProjectCreatorGUI
 「AviutlProjectCreatorGUI」は Aviutlで使う(?)フォルダを作るためのプログラムです。
 
-## 環境構築
+## ビルド環境
 ビルドには「Visual Studio 2022」が必要です。  
   
-言語バージョンは 「ISO C++ 20 標準 (/std:c++20)」です。
+言語バージョンは 「ISO C++ 20 標準 (/std:c++20)」です。  
 
 ### 注意
-プログラミング初心者(？)が作ったため、スパゲッティです。  
+[プログラミング初心者](https://qiita.com/yumetodo/items/a843bd542106215bbc84)が作ったため、スパゲッティかもしれません。  
 許してください。  
 
 ## 使い方
@@ -26,10 +26,10 @@
 ```
 %PROJPATH%/
  ├ %SERIESNAME%/
-  └ %PROJNAME%/
+   └ %PROJNAME%/
      └ contents.md
 ```
-のようになります。
+のようになります。  
 また、シリーズ名が空の場合は、直接、プロジェクトを作る場所に、プロジェクト名のフォルダができます。
 ```
 %PROJPATH%/
@@ -77,7 +77,7 @@ AviutlProjectCreatorGUIは、[MIT LICENSE](https://github.com/soramakura/AviutlP
 
 ## 使い方
 AviutlProjectCreatorGUIとほぼ同じ。  
-なお、こちらのバイナリは提供していません。
+なお、こちらのバイナリは提供していませんので、自分でビルドしてください。
 
 ## ライセンス
 AviutlProjectCreatorは、[MIT LICENSE](https://github.com/soramakura/AviutlProjectCreator/blob/master/LICENSE)
