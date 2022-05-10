@@ -1,5 +1,5 @@
 # AviutlProjectCreatorGUI
-「AviutlProjectCreatorGUI」は Aviutlで使うプロジェクト(？)を作るためのプログラムです。
+「AviutlProjectCreatorGUI」は Aviutlで使う(?)フォルダを作るためのプログラムです。
 
 ## 環境構築
 ビルドには「Visual Studio 2022」が必要です。  
@@ -23,8 +23,20 @@
 
 ### フォルダ構成
 フォルダ構造は、シリーズ名が入力されていると、
-プロジェクトを作る場所のフォルダのなかに、シリーズ名の フォルダができて、さらにその中に、プロジェクト名のフォルダという感じでできます。  
-シリーズ名が空の場合は、直接、プロジェクトを作る場所に、プロジェクト名のフォルダができます。
+```
+%PROJPATH%/
+ ├ %SERIESNAME%/
+  └ %PROJNAME%/
+     └ contents.md
+```
+のようになります。
+また、シリーズ名が空の場合は、直接、プロジェクトを作る場所に、プロジェクト名のフォルダができます。
+```
+%PROJPATH%/
+ ├ %SERIESNAME%/
+   └ %PROJNAME%/
+     └ contents.md
+```
 
 ### その他の機能
 AviutlProjectCreatorGUI には、Markdownを自動生成する機能と、
@@ -61,10 +73,11 @@ AviutlProjectCreatorGUIは、[MIT LICENSE](https://github.com/soramakura/AviutlP
 
 ---
 # AviUtlProjectCreator
-「AviutlProjectCreatorGUI」の CUI版。こっちのほうが先に作った ~~(その後、AviutlProjectCreatorGUIで書いたコードを基にリファクタリングした)~~。  
+「AviutlProjectCreatorGUI」の CUI版。こっちのほうが先に作った ~~(その後、AviutlProjectCreatorGUIで書いたコードを基にコードを書き直した)~~。  
 
 ## 使い方
-AviutlProjectCreatorGUIとほぼ同じ  
+AviutlProjectCreatorGUIとほぼ同じ。  
+なお、こちらのバイナリは提供していません。
 
 ## ライセンス
 AviutlProjectCreatorは、[MIT LICENSE](https://github.com/soramakura/AviutlProjectCreator/blob/master/LICENSE)

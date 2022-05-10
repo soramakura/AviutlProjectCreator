@@ -1,7 +1,9 @@
-﻿  ProjectCreate.cpp
+﻿  MainWindow.cpp
+  ProjectCreate.cpp
+  main.cpp
   コード生成しています。
-  13 of 1515 functions ( 0.9%) were compiled, the rest were copied from previous compilation.
-    9 functions were new in current compilation
-    72 functions had inline decision re-evaluated but remain unchanged
+  5 of 1515 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+    3 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
   AviutlProjectCreatorGUI.vcxproj -> D:\Program\vs\2022\Console\AviUtlProjectCreator\x64\Release\AviutlProjectCreatorGUI.exe

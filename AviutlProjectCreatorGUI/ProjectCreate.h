@@ -12,7 +12,7 @@ bool createProject
 , const std::wstring& projectPath
 , const std::wstring& seriesName
 );
-std::vector<std::wstring> readAddDirFile(std::wifstream&& file);
+std::vector<std::wstring> read_adddir_file(std::wifstream&& file);
 void createMarkdown
 ( const std::filesystem::path& basePath
 , const std::wstring&          projectName

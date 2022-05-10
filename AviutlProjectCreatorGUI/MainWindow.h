@@ -1,7 +1,6 @@
 #pragma once
 
 #include <string>
-#include <filesystem>
 
 #include <Windows.h>
 #include "resource.h"
@@ -12,9 +11,9 @@ class MainWindow
     std::wstring seriesName ;
     std::wstring projectName;
 
-    std::wstring getDlgItemTextW(HWND hDlg, UINT nIDDlgItem);
+    std::wstring GetDlgItemTextW(HWND hDlg, UINT nIDDlgItem);
 
-    bool handle_IDOK(HWND hDlg, WPARAM wParam, LPARAM lParam);
+    bool handle_IDOK(HWND hDlg);
     void handle_BOOT_EXPLORER(HWND hDlg);
 
 public:

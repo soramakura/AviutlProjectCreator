@@ -40,7 +40,7 @@ bool createProject
         fs::create_directory(projectName);
         fs::current_path(projectName);
 
-        for (const auto path : readAddDirFile(std::ifstream{ sourcePath / "config" / "adddir.txt" })) {
+        for (const auto path : read_adddir_file(std::ifstream{ sourcePath / "config" / "adddir.txt" })) {
             fs::create_directories(replaceTags(path, projectName, projectPath, seriesName));
         }
 
@@ -52,7 +52,7 @@ bool createProject
     }
     return true;
 }
-std::vector<std::string> readAddDirFile(std::ifstream&& file)
+std::vector<std::string> read_adddir_file(std::ifstream&& file)
 {
     std::vector<std::string> addCreateDirList;
     for (;;) {

@@ -10,7 +10,7 @@ bool createProject
 , const std::string& projectPath
 , const std::string& seriesName
 );
-std::vector<std::string> readAddDirFile(std::ifstream&& file);
+std::vector<std::string> read_adddir_file(std::ifstream&& file);
 void createMarkdown
 ( const std::filesystem::path& basePath
 , const std::string&          projectName

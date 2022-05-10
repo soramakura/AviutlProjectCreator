@@ -6,10 +6,10 @@
 #include "config.h"
 #include "ProjectCreate.h"
 
-std::wstring MainWindow::getDlgItemTextW(HWND hDlg, UINT nIDDlgItem)
+std::wstring MainWindow::GetDlgItemTextW(HWND hDlg, UINT nIDDlgItem)
 {
     std::wstring str(4095, L'\0');
-    str.resize(GetDlgItemTextW
+    str.resize(::GetDlgItemTextW
     ( /*HWND   hDlg      */hDlg
     , /*int    nIDDlgItem*/nIDDlgItem
     , /*LPWSTR lpString  */&str.front()
@@ -18,11 +18,11 @@ std::wstring MainWindow::getDlgItemTextW(HWND hDlg, UINT nIDDlgItem)
     return str;
 }
 
-bool MainWindow::handle_IDOK(HWND hDlg, WPARAM wParam, LPARAM lParam)
+bool MainWindow::handle_IDOK(HWND hDlg)
 {
-    projectPath = getDlgItemTextW(hDlg, PROJECT_PATH_EDIT);
-    seriesName  = getDlgItemTextW(hDlg, SERIES_NAME_EDIT );
-    projectName = getDlgItemTextW(hDlg, PROJECT_NAME_EDIT);
+    projectPath = GetDlgItemTextW(hDlg, PROJECT_PATH_EDIT);
+    seriesName  = GetDlgItemTextW(hDlg, SERIES_NAME_EDIT );
+    projectName = GetDlgItemTextW(hDlg, PROJECT_NAME_EDIT);
     return createProject(hDlg, projectName, projectPath, seriesName);
 }
 
@@ -72,7 +72,7 @@ INT_PTR CALLBACK MainWindow::dialogProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPA
 
         case IDOK:
             if (const auto p = reinterpret_cast<MainWindow*>(GetWindowLongPtrW(hDlg, GWLP_USERDATA))) {
-                if (p->handle_IDOK(hDlg, wParam, lParam)) {
+                if (p->handle_IDOK(hDlg)) {
                     EndDialog(hDlg, true);
                 }
             }
