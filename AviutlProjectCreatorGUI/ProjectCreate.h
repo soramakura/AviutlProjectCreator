@@ -6,7 +6,7 @@
 #include <filesystem>
 #include <Windows.h>
 
-bool createProject
+bool createProjectDir
 (       HWND          hDlg
 , const std::wstring& projectName
 , const std::wstring& projectPath

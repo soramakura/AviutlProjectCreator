@@ -23,7 +23,7 @@ bool MainWindow::handle_IDOK(HWND hDlg)
     projectPath = GetDlgItemTextW(hDlg, PROJECT_PATH_EDIT);
     seriesName  = GetDlgItemTextW(hDlg, SERIES_NAME_EDIT );
     projectName = GetDlgItemTextW(hDlg, PROJECT_NAME_EDIT);
-    return createProject(hDlg, projectName, projectPath, seriesName);
+    return createProjectDir(hDlg, projectName, projectPath, seriesName);
 }
 
 void MainWindow::handle_BOOT_EXPLORER(HWND hDlg)

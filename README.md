@@ -25,7 +25,7 @@
 フォルダ構造は、シリーズ名が入力されていると、
 ```
 %PROJPATH%/
- ├ %SERIESNAME%/
+ └ %SERIESNAME%/
    └ %PROJNAME%/
      └ contents.md
 ```
@@ -33,9 +33,8 @@
 また、シリーズ名が空の場合は、直接、プロジェクトを作る場所に、プロジェクト名のフォルダができます。
 ```
 %PROJPATH%/
- ├ %SERIESNAME%/
-   └ %PROJNAME%/
-     └ contents.md
+ └ %PROJNAME%/
+   └ contents.md
 ```
 
 ### その他の機能
