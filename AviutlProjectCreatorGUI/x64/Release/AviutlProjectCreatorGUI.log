@@ -1,8 +1,9 @@
-﻿  main.cpp
-  MainWindow.cpp
+﻿  MainWindow.cpp
   ProjectCreate.cpp
+  main.cpp
   コード生成しています。
-  Previous IPDB was built with incompatible compiler, fall back to full compilation.
-  All 1516 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  762 of 2112 functions (36.1%) were compiled, the rest were copied from previous compilation.
+    605 functions were new in current compilation
+    213 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
   AviutlProjectCreatorGUI.vcxproj -> D:\Program\vs\2022\Console\AviUtlProjectCreator\x64\Release\AviutlProjectCreatorGUI.exe

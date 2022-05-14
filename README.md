@@ -2,7 +2,7 @@
 「AviutlProjectCreatorGUI」は Aviutlで使う(?)フォルダを作るためのプログラムです。
 
 ## ビルド環境
-ビルドには「Visual Studio 2022」が必要です。  
+ビルドには、Visual Studio 2022 version 17.2.0以上が必要です。(std::formatを使うため)  
   
 言語バージョンは 「ISO C++ 20 標準 (/std:c++20)」です。  
 
