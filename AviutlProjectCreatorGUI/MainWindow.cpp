@@ -1,12 +1,13 @@
 #include "MainWindow.h"
 
 #include <process.h>
+#include <shobjidl_core.h>
 
 #include "resource.h"
 #include "config.h"
 #include "ProjectCreate.h"
 
-std::wstring MainWindow::GetDlgItemTextW(HWND hDlg, UINT nIDDlgItem)
+std::wstring Win32Wrap::GetDlgItemTextW(HWND hDlg, UINT nIDDlgItem)
 {
     std::wstring str(4095, L'\0');
     str.resize(::GetDlgItemTextW
@@ -20,35 +21,42 @@ std::wstring MainWindow::GetDlgItemTextW(HWND hDlg, UINT nIDDlgItem)
 
 bool MainWindow::handle_IDOK(HWND hDlg)
 {
-    projectPath = GetDlgItemTextW(hDlg, PROJECT_PATH_EDIT);
-    seriesName  = GetDlgItemTextW(hDlg, SERIES_NAME_EDIT );
-    projectName = GetDlgItemTextW(hDlg, PROJECT_NAME_EDIT);
+    projectPath = Win32Wrap::GetDlgItemTextW(hDlg, PROJECT_PATH_EDIT);
+    seriesName  = Win32Wrap::GetDlgItemTextW(hDlg, SERIES_NAME_EDIT );
+    projectName = Win32Wrap::GetDlgItemTextW(hDlg, PROJECT_NAME_EDIT);
     return createProjectDir(hDlg, projectName, projectPath, seriesName);
 }
 
 void MainWindow::handle_BOOT_EXPLORER(HWND hDlg)
 {
-    STARTUPINFOW startupInfo{ .cb{sizeof(startupInfo)} };
-    PROCESS_INFORMATION processInfo;
-    if (!CreateProcessW
-    ( /*_In_opt_    LPCWSTR               lpApplicationName   */LR"(C:\Windows\explorer.exe)"
-    , /*_Inout_opt_ LPWSTR                lpCommandLine       */nullptr
-    , /*_In_opt_    LPSECURITY_ATTRIBUTES lpProcessAttributes */nullptr
-    , /*_In_opt_    LPSECURITY_ATTRIBUTES lpThreadAttributes  */nullptr
-    , /*_In_        BOOL                  bInheritHandles     */false
-    , /*_In_        DWORD                 dwCreationFlags     */0
-    , /*_In_opt_    LPVOID                lpEnvironment       */nullptr
-    , /*_In_opt_    LPCWSTR               lpCurrentDirectory  */nullptr
-    , /*_In_        LPSTARTUPINFOW        lpStartupInfo       */&startupInfo
-    , /*_Out_       LPPROCESS_INFORMATION lpProcessInformation*/&processInfo
-    )) {
-        MessageBoxW(hDlg, L"エクスプローラーを起動できませんでした。", WindowNameW, MB_OK | MB_ICONERROR);
+    //以下サイトからのコピペ
+    //https://donadona.hatenablog.jp/entry/2017/01/09/005447
+
+    IFileDialog* pDialog = nullptr;
+    if (FAILED(CoCreateInstance(CLSID_FileOpenDialog, nullptr, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&pDialog)))) {
         return;
     }
-    WaitForSingleObject(processInfo.hProcess, INFINITE);
 
-    CloseHandle(processInfo.hProcess);
-    CloseHandle(processInfo.hThread);
+    DWORD options;
+    pDialog->GetOptions(&options);
+    pDialog->SetOptions(options | FOS_PICKFOLDERS);
+    
+
+    if (SUCCEEDED(pDialog->Show(nullptr))) {
+        IShellItem* pItem = nullptr;
+        PWSTR pPath = nullptr;
+        if (SUCCEEDED(pDialog->GetResult(&pItem))) {
+            if (SUCCEEDED(pItem->GetDisplayName(SIGDN_FILESYSPATH, &pPath))) {
+                projectPath = pPath;
+                // pPathのメモリを開放する
+                CoTaskMemFree(pPath);
+            }
+        }
+    }
+    pDialog->Release();
+
+    //画面の更新
+    SetDlgItemTextW(hDlg, PROJECT_PATH_EDIT, projectPath.c_str());
 }
 
 INT_PTR CALLBACK MainWindow::dialogProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)

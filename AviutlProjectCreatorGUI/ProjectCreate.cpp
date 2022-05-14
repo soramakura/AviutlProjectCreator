@@ -107,19 +107,20 @@ std::wstring replaceTags
         << timeStruct.tm_mday        << L"“ú"
         ).str()
     );
-    line = std::regex_replace(line, std::wregex(LR"(%DATEISO%)"), (std::wostringstream()
-        << timeStruct.tm_year + 1900 << L"-"
-        << timeStruct.tm_mon  + 1    << L"-"
-        << timeStruct.tm_mday        << L"-"
-        ).str()
+    line = std::regex_replace(line, std::wregex(LR"(%DATEISO%)"), std::format
+        ( L"{:0>4}-{:0>2}-{:0>2}\n"
+        , timeStruct.tm_year + 1900
+        , timeStruct.tm_mon  + 1   
+        , timeStruct.tm_mday       
+        )
     );
-    line = std::regex_replace(line, std::wregex(LR"(%YEAR%)"  ), std::to_wstring(timeStruct.tm_year + 1900));
-    line = std::regex_replace(line, std::wregex(LR"(%MONTH%)" ), std::to_wstring(timeStruct.tm_mon  + 1   ));
-    line = std::regex_replace(line, std::wregex(LR"(%DAY%)"   ), std::to_wstring(timeStruct.tm_mday       ));
-    line = std::regex_replace(line, std::wregex(LR"(%HOUR%)"  ), std::to_wstring(timeStruct.tm_hour       ));
-    line = std::regex_replace(line, std::wregex(LR"(%MINUTE%)"), std::to_wstring(timeStruct.tm_min        ));
-    line = std::regex_replace(line, std::wregex(LR"(%SECOND%)"), std::to_wstring(timeStruct.tm_sec        ));
-    line = std::regex_replace(line, std::wregex(LR"(%TIME_T%)"), std::to_wstring(currentTime              ));
+    line = std::regex_replace(line, std::wregex(LR"(%YEAR%)"  ), std::format(L"{:0>4}", timeStruct.tm_year + 1900));
+    line = std::regex_replace(line, std::wregex(LR"(%MONTH%)" ), std::format(L"{:0>2}", timeStruct.tm_mon  + 1   ));
+    line = std::regex_replace(line, std::wregex(LR"(%DAY%)"   ), std::format(L"{:0>2}", timeStruct.tm_mday       ));
+    line = std::regex_replace(line, std::wregex(LR"(%HOUR%)"  ), std::format(L"{:0>2}", timeStruct.tm_hour       ));
+    line = std::regex_replace(line, std::wregex(LR"(%MINUTE%)"), std::format(L"{:0>2}", timeStruct.tm_min        ));
+    line = std::regex_replace(line, std::wregex(LR"(%SECOND%)"), std::format(L"{:0>2}", timeStruct.tm_sec        ));
+    line = std::regex_replace(line, std::wregex(LR"(%TIME_T%)"), std::format(L"{:0>1}", currentTime              ));
 
     line = std::regex_replace(line, std::wregex(LR"(%PROJNAME%)"  ), projectName);
     line = std::regex_replace(line, std::wregex(LR"(%PROJPATH%)"  ), projectPath);

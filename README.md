@@ -76,7 +76,6 @@ AviutlProjectCreatorGUIは、[MIT LICENSE](https://github.com/soramakura/AviutlP
 
 ## 使い方
 AviutlProjectCreatorGUIとほぼ同じ。  
-なお、こちらのバイナリは提供していませんので、自分でビルドしてください。
 
 ## ライセンス
 AviutlProjectCreatorは、[MIT LICENSE](https://github.com/soramakura/AviutlProjectCreator/blob/master/LICENSE)

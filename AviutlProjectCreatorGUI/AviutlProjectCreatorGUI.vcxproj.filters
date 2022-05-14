@@ -32,10 +32,10 @@
     <ClInclude Include="MainWindow.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="ProjectCreate.h">
+    <ClInclude Include="config.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="config.h">
+    <ClInclude Include="ProjectCreate.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
